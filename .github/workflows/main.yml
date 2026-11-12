@@ -1,0 +1,15 @@
+name: Comprobar README
+on: [push]
+jobs:
+  check-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Verificar existencia
+        run: |
+          if [ -f README.md ]; then
+            echo "¡El README existe! Todo bien."
+          else
+            echo "Error: README.md no encontrado."
+            exit 1
+          fi
